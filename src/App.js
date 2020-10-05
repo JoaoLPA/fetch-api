@@ -32,16 +32,33 @@ const App = () => {
         ></link>
       </Helmet>
       <GlobalStyle />
-      <Container>
-        <Title>State exercise</Title>
+      <Container data-test="component-app">
+        <Title data-test="component-title">State exercise</Title>
         <InnerContainer>
-          <FetchButton name="notebook" handleClick={handleClick} />
-          <FetchButton name="tablet" handleClick={handleClick} />
-          <FetchButton name="smartphone" handleClick={handleClick} />
+          <FetchButton
+            data-test="component-button-nb"
+            name="notebook"
+            handleClick={handleClick}
+          />
+          <FetchButton
+            data-test="component-button-tbt"
+            name="tablet"
+            handleClick={handleClick}
+          />
+          <FetchButton
+            data-test="component-button-sp"
+            name="smartphone"
+            handleClick={handleClick}
+          />
         </InnerContainer>
-        {loading && <LoadingMessage message={"Carregando"} />}
+        {loading && (
+          <LoadingMessage
+            data-test="component-loading"
+            message={"Carregando"}
+          />
+        )}
         {product ? (
-          <ProductsDisplay product={product} />
+          <ProductsDisplay data-test="component-product" product={product} />
         ) : (
           <LoadingMessage message={"Nenhum produto pesquisado"} />
         )}
